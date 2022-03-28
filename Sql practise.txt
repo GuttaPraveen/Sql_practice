@@ -1,0 +1,481 @@
+mysql> create database it_branch;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bitlabs_intern     |
+| it_branch          |
+| mysql              |
+| student            |
+| student_details    |
+| test               |
+| weekend            |
+| weekend_batch      |
++--------------------+
+9 rows in set (0.01 sec)
+
+mysql> use it_branch;
+Database changed
+mysql> show tables;
+Empty set (0.02 sec)
+
+mysql> create table student_it(sid int,sname varchar(20),sbranch varchar(20),smarks int,scity varchar(20));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_it_branch |
++---------------------+
+| student_it          |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> desc student_it;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| sid     | int(11)     | YES  |     | NULL    |       |
+| sname   | varchar(20) | YES  |     | NULL    |       |
+| sbranch | varchar(20) | YES  |     | NULL    |       |
+| smarks  | int(11)     | YES  |     | NULL    |       |
+| scity   | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.03 sec)
+
+mysql> insert into student_it values(1240,'Praveen','IT',85,'Prakasam');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student_it values(1237,'Kartheek','IT',80,'Gudivada');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student_it values(1264,'Pawan','IT',90,'Srikakulam');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student_it values(1244,'Durga Prasad','IT',85,'Gudivada');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student_it values(1218,'Maha','ECE',75,'Prakasam');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student_it values(1239,'Lakshmi Reddy','CSE',95,'Prakasam');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student_it values(1204,'Koteswari','IT',85,'Bapatla');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student_it;
++------+---------------+---------+--------+------------+
+| sid  | sname         | sbranch | smarks | scity      |
++------+---------------+---------+--------+------------+
+| 1240 | Praveen       | IT      |     85 | Prakasam   |
+| 1237 | Kartheek      | IT      |     80 | Gudivada   |
+| 1264 | Pawan         | IT      |     90 | Srikakulam |
+| 1244 | Durga Prasad  | IT      |     85 | Gudivada   |
+| 1218 | Maha          | ECE     |     75 | Prakasam   |
+| 1239 | Lakshmi Reddy | CSE     |     95 | Prakasam   |
+| 1204 | Koteswari     | IT      |     85 | Bapatla    |
++------+---------------+---------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select sid,sname from student_it;
++------+---------------+
+| sid  | sname         |
++------+---------------+
+| 1240 | Praveen       |
+| 1237 | Kartheek      |
+| 1264 | Pawan         |
+| 1244 | Durga Prasad  |
+| 1218 | Maha          |
+| 1239 | Lakshmi Reddy |
+| 1204 | Koteswari     |
++------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> select sname,scity from student_it;
++---------------+------------+
+| sname         | scity      |
++---------------+------------+
+| Praveen       | Prakasam   |
+| Kartheek      | Gudivada   |
+| Pawan         | Srikakulam |
+| Durga Prasad  | Gudivada   |
+| Maha          | Prakasam   |
+| Lakshmi Reddy | Prakasam   |
+| Koteswari     | Bapatla    |
++---------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> desc student_it;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| sid     | int(11)     | YES  |     | NULL    |       |
+| sname   | varchar(20) | YES  |     | NULL    |       |
+| sbranch | varchar(20) | YES  |     | NULL    |       |
+| smarks  | int(11)     | YES  |     | NULL    |       |
+| scity   | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.04 sec)
+
+mysql> select * from student_it;
++------+---------------+---------+--------+------------+
+| sid  | sname         | sbranch | smarks | scity      |
++------+---------------+---------+--------+------------+
+| 1240 | Praveen       | IT      |     85 | Prakasam   |
+| 1237 | Kartheek      | IT      |     80 | Gudivada   |
+| 1264 | Pawan         | IT      |     90 | Srikakulam |
+| 1244 | Durga Prasad  | IT      |     85 | Gudivada   |
+| 1218 | Maha          | ECE     |     75 | Prakasam   |
+| 1239 | Lakshmi Reddy | CSE     |     95 | Prakasam   |
+| 1204 | Koteswari     | IT      |     85 | Bapatla    |
++------+---------------+---------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select sname,smarks from student_it where sbranch='IT';
++--------------+--------+
+| sname        | smarks |
++--------------+--------+
+| Praveen      |     85 |
+| Kartheek     |     80 |
+| Pawan        |     90 |
+| Durga Prasad |     85 |
+| Koteswari    |     85 |
++--------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select sid,sbranch from student_it where scity='Prakasam';
++------+---------+
+| sid  | sbranch |
++------+---------+
+| 1240 | IT      |
+| 1218 | ECE     |
+| 1239 | CSE     |
++------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select sid,sname,smarks from student_it where sname='Lakshmi Reddy';
++------+---------------+--------+
+| sid  | sname         | smarks |
++------+---------------+--------+
+| 1239 | Lakshmi Reddy |     95 |
++------+---------------+--------+
+1 row in set (0.00 sec)
+
+mysql> select sid,sname,smarks from student_it where smarks=85;
++------+--------------+--------+
+| sid  | sname        | smarks |
++------+--------------+--------+
+| 1240 | Praveen      |     85 |
+| 1244 | Durga Prasad |     85 |
+| 1204 | Koteswari    |     85 |
++------+--------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from student_it where smarks>85;
++------+---------------+---------+--------+------------+
+| sid  | sname         | sbranch | smarks | scity      |
++------+---------------+---------+--------+------------+
+| 1264 | Pawan         | IT      |     90 | Srikakulam |
+| 1239 | Lakshmi Reddy | CSE     |     95 | Prakasam   |
++------+---------------+---------+--------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from student_it where sid <1235;
++------+-----------+---------+--------+----------+
+| sid  | sname     | sbranch | smarks | scity    |
++------+-----------+---------+--------+----------+
+| 1218 | Maha      | ECE     |     75 | Prakasam |
+| 1204 | Koteswari | IT      |     85 | Bapatla  |
++------+-----------+---------+--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from student_it where city='Prakasam' and smarks=85;
+ERROR 1054 (42S22): Unknown column 'city' in 'where clause'
+mysql> select * from student_it where scity='Prakasam' and smarks=85;
++------+---------+---------+--------+----------+
+| sid  | sname   | sbranch | smarks | scity    |
++------+---------+---------+--------+----------+
+| 1240 | Praveen | IT      |     85 | Prakasam |
++------+---------+---------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from student_it where scity='Prakasam' or smarks=85;
++------+---------------+---------+--------+----------+
+| sid  | sname         | sbranch | smarks | scity    |
++------+---------------+---------+--------+----------+
+| 1240 | Praveen       | IT      |     85 | Prakasam |
+| 1244 | Durga Prasad  | IT      |     85 | Gudivada |
+| 1218 | Maha          | ECE     |     75 | Prakasam |
+| 1239 | Lakshmi Reddy | CSE     |     95 | Prakasam |
+| 1204 | Koteswari     | IT      |     85 | Bapatla  |
++------+---------------+---------+--------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student_it group by city;
+ERROR 1054 (42S22): Unknown column 'city' in 'group statement'
+mysql> select * from student_it group by scity;
++------+-----------+---------+--------+------------+
+| sid  | sname     | sbranch | smarks | scity      |
++------+-----------+---------+--------+------------+
+| 1204 | Koteswari | IT      |     85 | Bapatla    |
+| 1237 | Kartheek  | IT      |     80 | Gudivada   |
+| 1240 | Praveen   | IT      |     85 | Prakasam   |
+| 1264 | Pawan     | IT      |     90 | Srikakulam |
++------+-----------+---------+--------+------------+
+4 rows in set (0.01 sec)
+
+mysql> select * from student_it order by scity;
++------+---------------+---------+--------+------------+
+| sid  | sname         | sbranch | smarks | scity      |
++------+---------------+---------+--------+------------+
+| 1204 | Koteswari     | IT      |     85 | Bapatla    |
+| 1237 | Kartheek      | IT      |     80 | Gudivada   |
+| 1244 | Durga Prasad  | IT      |     85 | Gudivada   |
+| 1240 | Praveen       | IT      |     85 | Prakasam   |
+| 1218 | Maha          | ECE     |     75 | Prakasam   |
+| 1239 | Lakshmi Reddy | CSE     |     95 | Prakasam   |
+| 1264 | Pawan         | IT      |     90 | Srikakulam |
++------+---------------+---------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from student_it order by sname;
++------+---------------+---------+--------+------------+
+| sid  | sname         | sbranch | smarks | scity      |
++------+---------------+---------+--------+------------+
+| 1244 | Durga Prasad  | IT      |     85 | Gudivada   |
+| 1237 | Kartheek      | IT      |     80 | Gudivada   |
+| 1204 | Koteswari     | IT      |     85 | Bapatla    |
+| 1239 | Lakshmi Reddy | CSE     |     95 | Prakasam   |
+| 1218 | Maha          | ECE     |     75 | Prakasam   |
+| 1264 | Pawan         | IT      |     90 | Srikakulam |
+| 1240 | Praveen       | IT      |     85 | Prakasam   |
++------+---------------+---------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from student_it order by sname desc;
++------+---------------+---------+--------+------------+
+| sid  | sname         | sbranch | smarks | scity      |
++------+---------------+---------+--------+------------+
+| 1240 | Praveen       | IT      |     85 | Prakasam   |
+| 1264 | Pawan         | IT      |     90 | Srikakulam |
+| 1218 | Maha          | ECE     |     75 | Prakasam   |
+| 1239 | Lakshmi Reddy | CSE     |     95 | Prakasam   |
+| 1204 | Koteswari     | IT      |     85 | Bapatla    |
+| 1237 | Kartheek      | IT      |     80 | Gudivada   |
+| 1244 | Durga Prasad  | IT      |     85 | Gudivada   |
++------+---------------+---------+--------+------------+
+7 rows in set (0.00 sec)
+mysql> select * from student_it order by sbranch desc;
++------+---------------+---------+--------+------------+
+| sid  | sname         | sbranch | smarks | scity      |
++------+---------------+---------+--------+------------+
+| 1240 | Praveen       | IT      |     85 | Prakasam   |
+| 1237 | Kartheek      | IT      |     80 | Gudivada   |
+| 1264 | Pawan         | IT      |     90 | Srikakulam |
+| 1244 | Durga Prasad  | IT      |     85 | Gudivada   |
+| 1204 | Koteswari     | IT      |     85 | Bapatla    |
+| 1218 | Maha          | ECE     |     75 | Prakasam   |
+| 1239 | Lakshmi Reddy | CSE     |     95 | Prakasam   |
++------+---------------+---------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from student_it order by smarks;
++------+---------------+---------+--------+------------+
+| sid  | sname         | sbranch | smarks | scity      |
++------+---------------+---------+--------+------------+
+| 1218 | Maha          | ECE     |     75 | Prakasam   |
+| 1237 | Kartheek      | IT      |     80 | Gudivada   |
+| 1240 | Praveen       | IT      |     85 | Prakasam   |
+| 1244 | Durga Prasad  | IT      |     85 | Gudivada   |
+| 1204 | Koteswari     | IT      |     85 | Bapatla    |
+| 1264 | Pawan         | IT      |     90 | Srikakulam |
+| 1239 | Lakshmi Reddy | CSE     |     95 | Prakasam   |
++------+---------------+---------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from student_it order by smarks limit 1;
++------+-------+---------+--------+----------+
+| sid  | sname | sbranch | smarks | scity    |
++------+-------+---------+--------+----------+
+| 1218 | Maha  | ECE     |     75 | Prakasam |
++------+-------+---------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from student_it order by smarks limit 1,1;
++------+----------+---------+--------+----------+
+| sid  | sname    | sbranch | smarks | scity    |
++------+----------+---------+--------+----------+
+| 1237 | Kartheek | IT      |     80 | Gudivada |
++------+----------+---------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from student_it order by smarks desc;
++------+---------------+---------+--------+------------+
+| sid  | sname         | sbranch | smarks | scity      |
++------+---------------+---------+--------+------------+
+| 1239 | Lakshmi Reddy | CSE     |     95 | Prakasam   |
+| 1264 | Pawan         | IT      |     90 | Srikakulam |
+| 1240 | Praveen       | IT      |     85 | Prakasam   |
+| 1244 | Durga Prasad  | IT      |     85 | Gudivada   |
+| 1204 | Koteswari     | IT      |     85 | Bapatla    |
+| 1237 | Kartheek      | IT      |     80 | Gudivada   |
+| 1218 | Maha          | ECE     |     75 | Prakasam   |
++------+---------------+---------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from student_it order by smarks limit 1;
++------+-------+---------+--------+----------+
+| sid  | sname | sbranch | smarks | scity    |
++------+-------+---------+--------+----------+
+| 1218 | Maha  | ECE     |     75 | Prakasam |
++------+-------+---------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from student_it order by smarks desc limit 1;
++------+---------------+---------+--------+----------+
+| sid  | sname         | sbranch | smarks | scity    |
++------+---------------+---------+--------+----------+
+| 1239 | Lakshmi Reddy | CSE     |     95 | Prakasam |
++------+---------------+---------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from student_it order by smarks desc limit 1,1;
++------+-------+---------+--------+------------+
+| sid  | sname | sbranch | smarks | scity      |
++------+-------+---------+--------+------------+
+| 1264 | Pawan | IT      |     90 | Srikakulam |
++------+-------+---------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from student_it order by smarks desc limit 1,4;
++------+--------------+---------+--------+------------+
+| sid  | sname        | sbranch | smarks | scity      |
++------+--------------+---------+--------+------------+
+| 1264 | Pawan        | IT      |     90 | Srikakulam |
+| 1240 | Praveen      | IT      |     85 | Prakasam   |
+| 1244 | Durga Prasad | IT      |     85 | Gudivada   |
+| 1204 | Koteswari    | IT      |     85 | Bapatla    |
++------+--------------+---------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student_it order by smarks limit 1,4;
++------+--------------+---------+--------+----------+
+| sid  | sname        | sbranch | smarks | scity    |
++------+--------------+---------+--------+----------+
+| 1237 | Kartheek     | IT      |     80 | Gudivada |
+| 1240 | Praveen      | IT      |     85 | Prakasam |
+| 1244 | Durga Prasad | IT      |     85 | Gudivada |
+| 1204 | Koteswari    | IT      |     85 | Bapatla  |
++------+--------------+---------+--------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student_it order by smarks limit 1,2;
++------+----------+---------+--------+----------+
+| sid  | sname    | sbranch | smarks | scity    |
++------+----------+---------+--------+----------+
+| 1237 | Kartheek | IT      |     80 | Gudivada |
+| 1240 | Praveen  | IT      |     85 | Prakasam |
++------+----------+---------+--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from student_it where scity not in 'Prakasam';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Prakasam'' at line 1
+mysql> select * from student_it where scity not in ('Prakasam');
++------+--------------+---------+--------+------------+
+| sid  | sname        | sbranch | smarks | scity      |
++------+--------------+---------+--------+------------+
+| 1237 | Kartheek     | IT      |     80 | Gudivada   |
+| 1264 | Pawan        | IT      |     90 | Srikakulam |
+| 1244 | Durga Prasad | IT      |     85 | Gudivada   |
+| 1204 | Koteswari    | IT      |     85 | Bapatla    |
++------+--------------+---------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student_it where smarks between 75 and 90;
++------+--------------+---------+--------+------------+
+| sid  | sname        | sbranch | smarks | scity      |
++------+--------------+---------+--------+------------+
+| 1240 | Praveen      | IT      |     85 | Prakasam   |
+| 1237 | Kartheek     | IT      |     80 | Gudivada   |
+| 1264 | Pawan        | IT      |     90 |Srikakulam |
+| 1244 | Durga Prasad | IT      |     85 | Gudivada   |
+| 1218 | Maha         | ECE     |     75 | Prakasam   |
+| 1204 | Koteswari    | IT      |     85 | Bapatla    |
++------+--------------+---------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bitlabs_intern     |
+| it_branch          |
+| mysql              |
+| student            |
+| student_details    |
+| test               |
+| weekend            |
+| weekend_batch      |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> drop database weekend_batch;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bitlabs_intern     |
+| it_branch          |
+| mysql              |
+| student            |
+| student_details    |
+| test               |
+| weekend            |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_it_branch |
++---------------------+
+| student_it          |
++---------------------+
+1 row in set (0.01 sec)
+
+mysql> drop table student_it;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from student_it;
+ERROR 1146 (42S02): Table 'it_branch.student_it' doesn't exist
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
